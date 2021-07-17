@@ -5,7 +5,6 @@ describe('Login Test', () => {
 
 	before(async () => {
 		browser = await puppeteer.launch({
-			ignoreHTTPSErrors: true,
 			headless: false,
 			slowMo: 0,
 			devtools: false,

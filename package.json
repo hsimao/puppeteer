@@ -9,12 +9,19 @@
 		"test:device": "./node_modules/mocha/bin/mocha --timeout=30000 ./tests/device.test.js",
 		"test:e2e": "./node_modules/mocha/bin/mocha --timeout=30000 ./tests/e2e/*.test.js",
 		"scraper": "node scraper/index.js",
-		"scraper:3": "for run in {1..3}; do node scraper/index.js; done"
+		"scraper:3": "for run in {1..3}; do node scraper/index.js; done",
+		"test:snapshots": "jest --config=testsSnapshots/jest.config.js --detectOpenHandles --forceExit",
+		"test:snapshots-update": "jest --config=testsSnapshots/jest.config.js --updateSnapshot --detectOpenHandles --forceExit",
+		"test:percy": "percy exec -- jest -i 'testsSnapshots/__tests__/percy.test.js'"
 	},
 	"author": "mars",
 	"license": "ISC",
 	"dependencies": {
+		"@percy/cli": "^1.0.0-beta.58",
+		"@percy/puppeteer": "^2.0.0",
 		"chai": "^4.3.4",
+		"jest": "^27.0.6",
+		"jest-image-snapshot": "^4.5.1",
 		"mocha": "^9.0.2",
 		"prettier": "^2.3.2",
 		"puppeteer": "^10.1.0",
